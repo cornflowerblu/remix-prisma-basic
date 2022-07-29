@@ -36,12 +36,12 @@ export default function Posts() {
                     <li key={posts.id}>
                         <h2>Title: {posts.title}</h2>
                         <p>Content: {posts.content}</p>
-                        <p>Written by: {posts.User.name}, {posts.User.name}</p>
+                        <p>Written by: {posts.User.name}, {posts.User.email}</p>
                         <p>Stated to be: {posts.User.Profile.bio}</p>
                     </li>
                 ))}                
             </ul>
-        <h3>Total posts: {posts.Post_aggregate.aggregate.count}</h3>            
+        <h3>Total posts: {posts.Post_aggregate.aggregate.count}</h3>
         </main>
     )
 }

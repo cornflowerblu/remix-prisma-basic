@@ -20,6 +20,7 @@ export type PostAggregate = {
               title: string
               content: string
               User: {
+                id: string
                 name: string
                 email: string
                 Profile: {
@@ -43,6 +44,7 @@ export async function getPostsGQL(sortParams: string, sortOrder: string): Promis
             title
             content
             User {
+              id
               name
               email
               Profile {
