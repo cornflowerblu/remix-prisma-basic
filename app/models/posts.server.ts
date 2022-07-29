@@ -9,7 +9,7 @@ import { GraphQLClient, gql } from 'graphql-request'
 const graphQLClient = new GraphQLClient('http://localhost:8000/v1/graphql')
 
 
-export type Posts = {
+export type PostAggregate = {
         Post_aggregate: {
           aggregate: {
             count: number
@@ -31,7 +31,7 @@ export type Posts = {
     }
 }
 
-export async function getPostsGQL(sortParams: string, sortOrder: string): Promise<Posts> {
+export async function getPostsGQL(sortParams: string, sortOrder: string): Promise<PostAggregate> {
     const query = gql`
     {
         Post_aggregate(order_by: {${sortParams}: ${sortOrder}}) {
