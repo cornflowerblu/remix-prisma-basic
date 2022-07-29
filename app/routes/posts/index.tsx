@@ -2,13 +2,27 @@ import { useLoaderData } from "@remix-run/react"
 import { json } from "@remix-run/node";
 import { getPostsGQL } from "~/models/posts.server";
 
+// TODO make thes enterable dynamically by route params or fall back to a default
+export enum OrderOptions {
+    'asc',
+    'desc',
+    false
+  }
+
+// TODO make thes enterable dynamically by route params or fall back to a default  
+export type PostOrderByParams = {
+    createdAt: string
+    authorId: string
+    published: string
+  }
+
 type LoaderData = {
     posts: Awaited<ReturnType<typeof getPostsGQL>>;
   };
 
 export const loader = async () => {
     return json<LoaderData>({
-        posts: await getPostsGQL(),
+        posts: await getPostsGQL('createdAt', 'desc'),
     });
 };
 

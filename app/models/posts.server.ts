@@ -31,10 +31,10 @@ export type Posts = {
     }
 }
 
-export async function getPostsGQL(): Promise<Posts> {
+export async function getPostsGQL(sortParams: string, sortOrder: string): Promise<Posts> {
     const query = gql`
     {
-        Post_aggregate(order_by: {createdAt: asc}) {
+        Post_aggregate(order_by: {${sortParams}: ${sortOrder}}) {
           aggregate {
             count
           }
