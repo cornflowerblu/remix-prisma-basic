@@ -1,14 +1,13 @@
-import type { Post} from "@prisma/client";
-import { PrismaClient } from "@prisma/client"
 import { GraphQLClient, gql } from 'graphql-request'
 
 
-const prisma = new PrismaClient()
+// const prisma = new PrismaClient()
+// export async function getPosts(): Promise<Array<Post>> {
+//     return prisma.post.findMany();
+// }
+
 const graphQLClient = new GraphQLClient('http://localhost:8000/v1/graphql')
 
-export async function getPosts(): Promise<Array<Post>> {
-    return prisma.post.findMany();
-}
 
 export type Posts = {
         Post_aggregate: {

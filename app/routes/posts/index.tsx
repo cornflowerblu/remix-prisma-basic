@@ -6,11 +6,11 @@ type LoaderData = {
     posts: Awaited<ReturnType<typeof getPostsGQL>>;
   };
 
-  export const loader = async () => {
+export const loader = async () => {
     return json<LoaderData>({
-      posts: await getPostsGQL(),
+        posts: await getPostsGQL(),
     });
-  };
+};
 
 export default function Posts() {
     const { posts } = useLoaderData() as unknown as LoaderData
