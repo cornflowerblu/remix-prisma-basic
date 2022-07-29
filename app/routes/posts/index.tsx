@@ -37,7 +37,7 @@ export default function Posts() {
                         <h2>Title: {posts.title}</h2>
                         <p>Content: {posts.content}</p>
                         <p>Written by: {posts.User.name}, {posts.User.email}</p>
-                        <p>Stated to be: {posts.User.Profile.bio}</p>
+                        <p>Stated to be: {posts.User.Profile?.bio || 'No bio found! ):'}</p>
                     </li>
                 ))}                
             </ul>
